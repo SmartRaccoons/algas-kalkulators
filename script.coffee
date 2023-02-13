@@ -96,15 +96,18 @@ calculate = (field_change, update = true, escaped = [])->
     return result_show result.str.split("\n").join("<br />")
 
 last_changed = null
-fields_all.forEach (field)-> by_id(field).onkeyup = ->
-    if field isnt 'min' and by_id_value(field) <= 0
-        return
-    if field isnt 'min' and by_id_value(field) > 0
-        last_changed = field
-    calculate(if field is 'min' then last_changed or 'total' else field)
+onchange = (field)->
+  if field isnt 'min' and by_id_value(field) <= 0
+      return
+  if field isnt 'min' and by_id_value(field) > 0
+      last_changed = field
+  calculate(if field is 'min' then last_changed or 'total' else field)
+fields_all.forEach (field)->
+  by_id(field).onkeyup = -> onchange(field)
+  by_id(field).onchange = -> onchange(field)
 
 
-by_id_set('min', hash_get('min') or values_default['min'] )
+by_id_set('min', if hash_get('min') is false then values_default['min'] else hash_get('min') )
 for field in fields
     if hash_get(field)
         by_id_set(field, hash_get(field))
