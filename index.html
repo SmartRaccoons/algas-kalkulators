@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html dir='ltr'>
+    <head>
+        <meta content='text/html;charset=utf-8' http-equiv='Content-Type' />
+        <title>Algas kalkulators - Smart Raccoons</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <style>
+            *{padding: 0; margin: 0;box-sizing: border-box;}
+            html{height: 100%;}
+            body{
+                height: 100%;
+                background:#231f20;
+                font: 22px/26px arial;
+                color: #f1f1f1;
+                padding: 2em;
+            }
+            h1{margin: 0; font-weight: normal;}
+            form {margin: 1em 0;}
+            form input {font-size: 1.5em; width: 6em; vertical-align: middle;}
+            form label {display: block; margin: 0.5em 0}
+            form label span::after {content: ': '}
+            span.error {color: red}
+            span.legit {color: green}
+            span.high1 {color: cyan}
+            span.warn {color: yellow}
+        </style>
+    </head>
+    <body>
+        <h1>Algas kalkulators</h1>
+        <form>
+            <label for='total'><span>Kopējais algas budžets</span><input type='number' id='total' /></label>
+            <label for='bruto'><span>Bruto alga</span><input type='number' id='bruto' /></label>
+            <label for='neto'><span>Neto alga (uz rokām)</span><input type='number' id='neto' /></label>
+            <label for='min'><span>Neapliekamais minimums (VID aprēķinātais)</span><input type='number' id='min' /></label>
+        </form>
+        <div id='result'></div>
+        <script src='./script.js'></script>
+    </body>
+</html>
