@@ -4,7 +4,7 @@
     indexOf = [].indexOf;
 
   values_default = {
-    min: 300,
+    min: 510,
     total: 1500
   };
 
@@ -49,7 +49,8 @@
       }
       tax_sia = bruto * 0.2359;
       tax_vsaoi = bruto * 0.1050;
-      iin_params = [[min + tax_vsaoi, 0.2], [20004 / 12, 0.23], [78100 / 12, 0.31]];
+      // iin_params = [[min + tax_vsaoi, 0.2], [20004/12, 0.23], [78100/12, 0.31]]
+      iin_params = [[min + tax_vsaoi, 0.255], [105300 / 12, 0.33]];
       tax_iin = iin_params.map(function(threshold, i, arr) {
         if (bruto > threshold[0]) {
           return (bruto - threshold[0]) * (threshold[1] - (i > 0 ? arr[i - 1][1] : 0));
