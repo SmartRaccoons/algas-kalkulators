@@ -4,8 +4,8 @@
     indexOf = [].indexOf;
 
   values_default = {
-    min: 510,
-    total: 1500
+    min: 550,
+    total: 1000
   };
 
   chalk = function(v, class_name) {

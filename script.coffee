@@ -1,6 +1,6 @@
 values_default =
-    min: 510
-    total: 1500
+    min: 550
+    total: 1000
 
 chalk = (v, class_name)-> "<span class='#{class_name}'>#{v}</span>"
 
